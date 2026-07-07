@@ -4,6 +4,10 @@
 
 这是一个独立、公开、只面向生图的 Codex Skill。当前版本只做电影级静帧 prompt 和 LOOK 迁移，不包含视频、图生视频、角色设定、生物设定、多 skill 路由。
 
+如果这个项目对你有帮助，欢迎点一个 GitHub Star，让更多创作者和 Agent 开发者看到它。
+
+更多案例和工作流分享，可以在抖音关注：**Sky**，ID：`28458932995`。
+
 ## 能做什么
 
 - 生成电影级生图 prompt。
@@ -16,7 +20,7 @@
 
 ```bash
 mkdir -p ~/.codex/skills
-git clone https://github.com/Leo414x/cinematic_prompt.git ~/.codex/skills/cinematic-prompt-engine
+git clone https://github.com/Leo414x/AI_Cinematic_Prompt.git ~/.codex/skills/cinematic-prompt-engine
 ```
 
 然后重启 Codex。
@@ -25,8 +29,30 @@ SSH 安装：
 
 ```bash
 mkdir -p ~/.codex/skills
-git clone git@github.com:Leo414x/cinematic_prompt.git ~/.codex/skills/cinematic-prompt-engine
+git clone git@github.com:Leo414x/AI_Cinematic_Prompt.git ~/.codex/skills/cinematic-prompt-engine
 ```
+
+## 使用方式
+
+重启 Codex 后，可以直接点名 skill：
+
+```text
+[$cinematic-prompt-engine] 用 Succession 风格，生成一个女人在雨夜停车场独自走向车的生图 prompt。
+```
+
+LOOK 迁移：
+
+```text
+[$cinematic-prompt-engine] 用 dune_arrakis 的 LOOK，拍一座清晨雾中的未来神庙。
+```
+
+模糊风格先出 LOOK CARD：
+
+```text
+[$cinematic-prompt-engine] 赛博朋克夜景，一个快递员站在废弃高架桥下，先给我 LOOK CARD。
+```
+
+如果命中明确 preset，skill 会直接生成完整 prompt；如果是模糊风格，会先给 LOOK CARD 让你确认。
 
 ## 示例
 
@@ -45,6 +71,17 @@ git clone git@github.com:Leo414x/cinematic_prompt.git ~/.codex/skills/cinematic-
 ## Demo Gallery
 
 查看 [demo/README.md](demo/README.md)，里面放了霓虹人物、巨构世界、史诗龙场景和太空悬疑几组示例图。
+
+## Star 和关注
+
+如果你把这个 skill 用进自己的 Agent 工作流，欢迎给项目点一个 Star。
+
+抖音关注：
+
+```text
+Sky
+ID: 28458932995
+```
 
 ## 当前不包含
 

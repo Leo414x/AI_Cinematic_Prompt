@@ -2,7 +2,11 @@
 
 一个面向 Agent 的电影级画面 Prompt 生成 Skill，专为生图与 LOOK 迁移打造，帮助生成具备 HBO、高端剧集与好莱坞电影质感的视觉提示词。
 
-This is a single, public, image-only Codex skill for cinematic prompt generation. It focuses on still-image prompts and LOOK transfer. Video, image-to-video, character sheets, and creature design are intentionally out of scope for now.
+This is a single, public, image-only Agent skill for cinematic prompt generation. It focuses on still-image prompts and LOOK transfer. Video, image-to-video, character sheets, and creature design are intentionally out of scope for now.
+
+If this project helps you, please give it a Star. It helps more creators and Agent builders discover the skill.
+
+中文交流与案例更新：抖音关注 **Sky**，ID：`28458932995`。
 
 ## What It Does
 
@@ -17,7 +21,7 @@ Clone this repository into your Codex skills directory:
 
 ```bash
 mkdir -p ~/.codex/skills
-git clone https://github.com/Leo414x/cinematic_prompt.git ~/.codex/skills/cinematic-prompt-engine
+git clone https://github.com/Leo414x/AI_Cinematic_Prompt.git ~/.codex/skills/cinematic-prompt-engine
 ```
 
 Then restart Codex.
@@ -26,8 +30,30 @@ For SSH:
 
 ```bash
 mkdir -p ~/.codex/skills
-git clone git@github.com:Leo414x/cinematic_prompt.git ~/.codex/skills/cinematic-prompt-engine
+git clone git@github.com:Leo414x/AI_Cinematic_Prompt.git ~/.codex/skills/cinematic-prompt-engine
 ```
+
+## Usage
+
+After restarting Codex, mention the skill or describe a cinematic image task:
+
+```text
+[$cinematic-prompt-engine] 用 Succession 风格，生成一个女人在雨夜停车场独自走向车的生图 prompt。
+```
+
+Use it for LOOK transfer:
+
+```text
+[$cinematic-prompt-engine] 用 dune_arrakis 的 LOOK，拍一座清晨雾中的未来神庙。
+```
+
+Use it for fuzzy visual direction:
+
+```text
+[$cinematic-prompt-engine] 赛博朋克夜景，一个快递员站在废弃高架桥下，先给我 LOOK CARD。
+```
+
+The skill will either generate a full prompt directly or show a LOOK CARD first when the style needs confirmation.
 
 ## Examples
 
@@ -46,6 +72,17 @@ git clone git@github.com:Leo414x/cinematic_prompt.git ~/.codex/skills/cinematic-
 ## Demo Gallery
 
 See [demo/README.md](demo/README.md) for example images covering neon portraits, monumental worlds, dragon-scale fantasy, and grounded space suspense.
+
+## Star and Follow
+
+If you use this skill in your own Agent workflow, a GitHub Star would mean a lot.
+
+For more cinematic AI workflow notes and examples, follow me on Douyin:
+
+```text
+Sky
+ID: 28458932995
+```
 
 ## Included Files
 
