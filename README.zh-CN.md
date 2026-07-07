@@ -42,6 +42,10 @@ git clone git@github.com:Leo414x/cinematic_prompt.git ~/.codex/skills/cinematic-
 赛博朋克夜景，一个快递员站在废弃高架桥下，先给我 LOOK CARD。
 ```
 
+## Demo Gallery
+
+查看 [demo/README.md](demo/README.md)，里面放了霓虹人物、巨构世界、史诗龙场景和太空悬疑几组示例图。
+
 ## 当前不包含
 
 - 文生视频

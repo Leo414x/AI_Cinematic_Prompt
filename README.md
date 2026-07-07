@@ -43,11 +43,16 @@ git clone git@github.com:Leo414x/cinematic_prompt.git ~/.codex/skills/cinematic-
 赛博朋克夜景，一个快递员站在废弃高架桥下，先给我 LOOK CARD。
 ```
 
+## Demo Gallery
+
+See [demo/README.md](demo/README.md) for example images covering neon portraits, monumental worlds, dragon-scale fantasy, and grounded space suspense.
+
 ## Included Files
 
 ```text
 SKILL.md
 anti-slop-system.md
+demo/
 references/
   params.md
   presets.md
