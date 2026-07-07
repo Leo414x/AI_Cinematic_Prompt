@@ -1,5 +1,7 @@
 # Demo Gallery
 
+**Language:** [中文](README.zh-CN.md) | English
+
 Example images for the Cinematic Prompt Engine public demo. These are grouped by the kinds of looks the skill is designed to produce: neon portrait drama, monumental fantasy, dragon-scale epic, and grounded space suspense.
 
 ## Neon Portraits

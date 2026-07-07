@@ -1,153 +1,133 @@
 # AI Cinematic Prompt
 
-**Language:** English | [中文](README.zh-CN.md)
+**语言选择：**中文 | [English](README.en.md)
 
-中文用户请看：[README.zh-CN.md](README.zh-CN.md)
+一个面向 Agent 的电影级画面 Prompt 生成 Skill，专为生图与 LOOK 迁移打造，帮助生成具备 HBO、高端剧集与好莱坞电影质感的视觉提示词。
 
-An image-only cinematic prompt skill for AI agents. It generates HBO / prestige-TV / Hollywood-grade image prompts and LOOK transfer prompts for still-image generation.
+如果这个项目对你有帮助，欢迎点一个 GitHub Star，让更多创作者和 Agent 开发者看到它。
 
-If this project helps you, please give it a Star. It helps more creators and Agent builders discover the skill.
-
-For Chinese workflow notes and visual examples, follow me on Douyin:
+更多案例和工作流分享，可以在抖音关注：
 
 ```text
 Sky
 ID: 28458932995
 ```
 
-## What It Does
+## 能做什么
 
-- Generates cinematic text-to-image prompts.
-- Transfers a cinematographic LOOK onto a different scene.
-- Uses DP-inspired presets, camera/lens/light/color parameters, and a tiered anti-slop system.
-- Supports fuzzy style requests through a LOOK CARD confirmation step.
-- Keeps the public edition focused on still images only.
+- 生成电影级生图 prompt。
+- 把某个电影 / 剧集 / DP 质感迁移到新场景。
+- 通过 preset 固定摄影机、镜头、光线、色彩、颗粒、情绪等参数。
+- 对模糊风格请求先输出 LOOK CARD，确认后再出完整 prompt。
+- 用分级 anti-slop 避免塑料感、CG 感、过度锐化、无动机补光等廉价 AI 画面问题。
 
-## Installation
+## 安装
 
-Choose the folder used by your agent environment.
+根据你使用的 Agent 环境选择安装目录。
 
 ### Claude Code
 
-HTTPS:
+HTTPS：
 
 ```bash
 mkdir -p ~/.claude/skills
 git clone https://github.com/Leo414x/AI_Cinematic_Prompt.git ~/.claude/skills/cinematic-prompt-engine
 ```
 
-SSH:
+SSH：
 
 ```bash
 mkdir -p ~/.claude/skills
 git clone git@github.com:Leo414x/AI_Cinematic_Prompt.git ~/.claude/skills/cinematic-prompt-engine
 ```
 
-Restart Claude Code after installation.
+安装后重启 Claude Code。
 
 ### Codex
 
-HTTPS:
+HTTPS：
 
 ```bash
 mkdir -p ~/.codex/skills
 git clone https://github.com/Leo414x/AI_Cinematic_Prompt.git ~/.codex/skills/cinematic-prompt-engine
 ```
 
-SSH:
+SSH：
 
 ```bash
 mkdir -p ~/.codex/skills
 git clone git@github.com:Leo414x/AI_Cinematic_Prompt.git ~/.codex/skills/cinematic-prompt-engine
 ```
 
-Restart Codex after installation.
+安装后重启 Codex。
 
-### Other Agent Runtimes
+### 其他 Agent 环境
 
-Clone this repository into the runtime's skills directory, keeping `SKILL.md` at the skill root:
-
-```text
-<your-agent-skills-dir>/cinematic-prompt-engine/SKILL.md
-```
-
-## Usage
-
-Mention the skill by name, or describe a cinematic still-image prompt task.
-
-Single image prompt:
+把仓库克隆到对应 Agent 的 skills 目录，并确保 `SKILL.md` 位于 skill 根目录：
 
 ```text
-[$cinematic-prompt-engine] Generate a Succession-style cinematic image prompt: a woman walking alone toward her car in a rainy parking lot at night.
+<你的-agent-skills-dir>/cinematic-prompt-engine/SKILL.md
 ```
 
-LOOK transfer:
+## 使用方式
+
+可以直接点名 skill，也可以直接描述电影级生图任务。
+
+单张生图：
 
 ```text
-[$cinematic-prompt-engine] Use the dune_arrakis LOOK to shoot a futuristic temple in morning fog.
+[$cinematic-prompt-engine] 用 Succession 风格，生成一个女人在雨夜停车场独自走向车的生图 prompt。
 ```
 
-Fuzzy style direction:
+LOOK 迁移：
 
 ```text
-[$cinematic-prompt-engine] Cyberpunk night scene, a courier standing under an abandoned overpass. Give me a LOOK CARD first.
+[$cinematic-prompt-engine] 用 dune_arrakis 的 LOOK，拍一座清晨雾中的未来神庙。
 ```
 
-The skill will generate a full prompt directly when a preset is clear. If the style is fuzzy, it will propose a LOOK CARD first and wait for confirmation.
+模糊风格先出 LOOK CARD：
+
+```text
+[$cinematic-prompt-engine] 赛博朋克夜景，一个快递员站在废弃高架桥下，先给我 LOOK CARD。
+```
+
+如果命中明确 preset，skill 会直接生成完整 prompt；如果是模糊风格，会先给 LOOK CARD 让你确认。
 
 ## Demo Gallery
 
-See [demo/README.md](demo/README.md) for example images covering neon portraits, monumental worlds, dragon-scale fantasy, and grounded space suspense.
+查看 [demo/README.zh-CN.md](demo/README.zh-CN.md)，里面放了霓虹人物、巨构世界、史诗龙场景和太空悬疑几组示例图。
 
-## Included Files
+## 当前包含
 
-```text
-SKILL.md
-anti-slop-system.md
-demo/
-references/
-  params.md
-  presets.md
-  recipes.md
-examples/
-  single-shot.md
-  look-transfer.md
-  look-card.md
-```
+- 生图 prompt
+- 电影级静帧画面
+- LOOK 迁移
+- preset 风格驱动
+- 模糊风格 LOOK CARD
 
-## Scope
+## 后续计划
 
-In scope:
+接下来会持续支持更新，包括但不限于：
 
-- Still-image prompts
-- Cinematic still frames
-- LOOK transfer
-- Preset-driven style
-- Fuzzy LOOK CARD workflow
+- 文生视频
+- 图生视频
+- 多镜头视频连续性
+- 角色定妆照 / 三视图 / 表情版
+- 生物 / 龙 / 怪兽形象设计
 
-Coming next:
+如果你想持续跟进这个项目，欢迎点一个 Star 关注后续更新。
 
-This public edition starts with still-image prompts and LOOK transfer. Future updates will expand the skill system, including but not limited to:
+## Star 和关注
 
-- Text-to-video
-- Image-to-video
-- Multi-shot video continuity
-- Character portraits / turnarounds / expression sheets
-- Creature / dragon / monster design
+如果你把这个 skill 用进自己的 Agent 工作流，欢迎给项目点一个 Star，关注后续更新。
 
-Star the repo if you want to follow focused updates.
-
-## Star and Follow
-
-If you use this skill in your own Agent workflow, a GitHub Star would mean a lot. I will keep this project focused and update it around cinematic image and video prompt workflows.
-
-For more cinematic AI workflow notes and examples, follow me on Douyin:
+抖音关注：
 
 ```text
 Sky
 ID: 28458932995
 ```
 
-## Disclaimer
+## 说明
 
-Preset names are descriptive references for cinematographic study and prompt engineering. This project is not affiliated with HBO, Warner Bros., A24, Netflix, or any named film, show, studio, camera, lens, or software brand.
+Preset 名称只用于摄影风格学习和 prompt 工程参考。本项目与 HBO、Warner Bros.、A24、Netflix 或任何提到的电影、剧集、工作室、摄影机、镜头、软件品牌均无官方关联。
