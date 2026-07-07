@@ -1,88 +1,99 @@
-# Cinematic Prompt Engine
+# AI Cinematic Prompt
 
-一个面向 Agent 的电影级画面 Prompt 生成 Skill，专为生图与 LOOK 迁移打造，帮助生成具备 HBO、高端剧集与好莱坞电影质感的视觉提示词。
-
-This is a single, public, image-only Agent skill for cinematic prompt generation. It focuses on still-image prompts and LOOK transfer. Video, image-to-video, character sheets, and creature design are intentionally out of scope for now.
+An image-only cinematic prompt skill for AI agents. It generates HBO / prestige-TV / Hollywood-grade image prompts and LOOK transfer prompts for still-image generation.
 
 If this project helps you, please give it a Star. It helps more creators and Agent builders discover the skill.
 
-中文交流与案例更新：抖音关注 **Sky**，ID：`28458932995`。
+For Chinese workflow notes and visual examples, follow me on Douyin:
+
+```text
+Sky
+ID: 28458932995
+```
 
 ## What It Does
 
 - Generates cinematic text-to-image prompts.
-- Transfers one cinematographic LOOK onto a different scene.
+- Transfers a cinematographic LOOK onto a different scene.
 - Uses DP-inspired presets, camera/lens/light/color parameters, and a tiered anti-slop system.
 - Supports fuzzy style requests through a LOOK CARD confirmation step.
+- Keeps the public edition focused on still images only.
 
-## Install
+## Installation
 
-Clone this repository into your Codex skills directory:
+Choose the folder used by your agent environment.
+
+### Claude Code
+
+HTTPS:
+
+```bash
+mkdir -p ~/.claude/skills
+git clone https://github.com/Leo414x/AI_Cinematic_Prompt.git ~/.claude/skills/cinematic-prompt-engine
+```
+
+SSH:
+
+```bash
+mkdir -p ~/.claude/skills
+git clone git@github.com:Leo414x/AI_Cinematic_Prompt.git ~/.claude/skills/cinematic-prompt-engine
+```
+
+Restart Claude Code after installation.
+
+### Codex
+
+HTTPS:
 
 ```bash
 mkdir -p ~/.codex/skills
 git clone https://github.com/Leo414x/AI_Cinematic_Prompt.git ~/.codex/skills/cinematic-prompt-engine
 ```
 
-Then restart Codex.
-
-For SSH:
+SSH:
 
 ```bash
 mkdir -p ~/.codex/skills
 git clone git@github.com:Leo414x/AI_Cinematic_Prompt.git ~/.codex/skills/cinematic-prompt-engine
 ```
 
+Restart Codex after installation.
+
+### Other Agent Runtimes
+
+Clone this repository into the runtime's skills directory, keeping `SKILL.md` at the skill root:
+
+```text
+<your-agent-skills-dir>/cinematic-prompt-engine/SKILL.md
+```
+
 ## Usage
 
-After restarting Codex, mention the skill or describe a cinematic image task:
+Mention the skill by name, or describe a cinematic still-image prompt task.
+
+Single image prompt:
 
 ```text
-[$cinematic-prompt-engine] 用 Succession 风格，生成一个女人在雨夜停车场独自走向车的生图 prompt。
+[$cinematic-prompt-engine] Generate a Succession-style cinematic image prompt: a woman walking alone toward her car in a rainy parking lot at night.
 ```
 
-Use it for LOOK transfer:
+LOOK transfer:
 
 ```text
-[$cinematic-prompt-engine] 用 dune_arrakis 的 LOOK，拍一座清晨雾中的未来神庙。
+[$cinematic-prompt-engine] Use the dune_arrakis LOOK to shoot a futuristic temple in morning fog.
 ```
 
-Use it for fuzzy visual direction:
+Fuzzy style direction:
 
 ```text
-[$cinematic-prompt-engine] 赛博朋克夜景，一个快递员站在废弃高架桥下，先给我 LOOK CARD。
+[$cinematic-prompt-engine] Cyberpunk night scene, a courier standing under an abandoned overpass. Give me a LOOK CARD first.
 ```
 
-The skill will either generate a full prompt directly or show a LOOK CARD first when the style needs confirmation.
-
-## Examples
-
-```text
-用 Succession 风格，生成一个女人在雨夜停车场独自走向车的生图 prompt。
-```
-
-```text
-用 dune_arrakis 的 LOOK，拍一座清晨雾中的未来神庙。
-```
-
-```text
-赛博朋克夜景，一个快递员站在废弃高架桥下，先给我 LOOK CARD。
-```
+The skill will generate a full prompt directly when a preset is clear. If the style is fuzzy, it will propose a LOOK CARD first and wait for confirmation.
 
 ## Demo Gallery
 
 See [demo/README.md](demo/README.md) for example images covering neon portraits, monumental worlds, dragon-scale fantasy, and grounded space suspense.
-
-## Star and Follow
-
-If you use this skill in your own Agent workflow, a GitHub Star would mean a lot.
-
-For more cinematic AI workflow notes and examples, follow me on Douyin:
-
-```text
-Sky
-ID: 28458932995
-```
 
 ## Included Files
 
@@ -117,6 +128,17 @@ Out of scope for this public edition:
 - Multi-shot video continuity
 - Character design sheets
 - Creature design sheets
+
+## Star and Follow
+
+If you use this skill in your own Agent workflow, a GitHub Star would mean a lot.
+
+For more cinematic AI workflow notes and examples, follow me on Douyin:
+
+```text
+Sky
+ID: 28458932995
+```
 
 ## Disclaimer
 
