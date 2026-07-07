@@ -125,17 +125,21 @@ In scope:
 - Preset-driven style
 - Fuzzy LOOK CARD workflow
 
-Out of scope for this public edition:
+Coming next:
+
+This public edition starts with still-image prompts and LOOK transfer. Future updates will expand the skill system, including but not limited to:
 
 - Text-to-video
 - Image-to-video
 - Multi-shot video continuity
-- Character design sheets
-- Creature design sheets
+- Character portraits / turnarounds / expression sheets
+- Creature / dragon / monster design
+
+Star the repo if you want to follow focused updates.
 
 ## Star and Follow
 
-If you use this skill in your own Agent workflow, a GitHub Star would mean a lot.
+If you use this skill in your own Agent workflow, a GitHub Star would mean a lot. I will keep this project focused and update it around cinematic image and video prompt workflows.
 
 For more cinematic AI workflow notes and examples, follow me on Douyin:
 
