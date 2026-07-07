@@ -1,5 +1,9 @@
 # AI Cinematic Prompt
 
+**Language:** English | [中文](README.zh-CN.md)
+
+中文用户请看：[README.zh-CN.md](README.zh-CN.md)
+
 An image-only cinematic prompt skill for AI agents. It generates HBO / prestige-TV / Hollywood-grade image prompts and LOOK transfer prompts for still-image generation.
 
 If this project helps you, please give it a Star. It helps more creators and Agent builders discover the skill.

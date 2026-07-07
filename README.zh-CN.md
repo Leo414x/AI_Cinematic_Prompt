@@ -1,5 +1,7 @@
 # AI Cinematic Prompt
 
+**语言选择：**[English](README.md) | 中文
+
 一个面向 Agent 的电影级画面 Prompt 生成 Skill，专为生图与 LOOK 迁移打造，帮助生成具备 HBO、高端剧集与好莱坞电影质感的视觉提示词。
 
 如果这个项目对你有帮助，欢迎点一个 GitHub Star，让更多创作者和 Agent 开发者看到它。
