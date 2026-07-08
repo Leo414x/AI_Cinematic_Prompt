@@ -1,21 +1,62 @@
-MIT License
+AI Cinematic Prompt Restricted License
 
-Copyright (c) 2026 Leo414x
+Copyright (c) 2026 Leo414x. All rights reserved.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+本项目及其包含的 Skill 规则、Prompt 结构、参数体系、文档、示例和相关素材均已注册版权。
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+在未取得作者明确书面授权前，你可以出于个人学习、研究、非商业创作和个人 Agent 工作流
+使用本项目，但不得进行以下行为：
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+1. 禁止转售、出租、打包售卖、付费分发本项目或其任何实质性部分。
+2. 禁止改名、换壳、移除作者信息后再次发布本项目或其任何实质性部分。
+3. 禁止将本项目或其任何实质性部分作为商业 SaaS、商业 API、商业 Agent 平台、
+   付费插件、付费模板库、付费课程素材或其他商业产品的核心能力。
+4. 禁止声称本项目、其规则体系、Prompt 结构、参数体系或示例为你的原创作品。
+5. 禁止移除、隐藏或篡改本版权声明、作者署名、仓库来源或许可条款。
+
+任何复制、分发、展示、修改或引用本项目内容的行为，必须保留作者署名和本许可文件。
+
+如需商业合作、商业授权、SaaS 集成、二次发布、课程使用、付费产品内置或其他超出本许可的
+用途，必须事先取得作者的明确书面授权。
+
+违反上述条款者，将自行承担由此产生的全部法律责任。
+
+本项目按“现状”提供，不提供任何明示或暗示的担保。作者不对因使用或无法使用本项目而
+产生的任何直接或间接损失承担责任。
+
+---
+
+English Summary
+
+This project, including its skill rules, prompt structures, parameter system,
+documentation, examples, and related materials, is copyright registered.
+
+Without explicit written permission from the author, you may use this project for
+personal learning, research, non-commercial creation, and personal Agent workflows
+only. You may not:
+
+1. Resell, rent, package, sell, or commercially redistribute this project or any
+   substantial part of it.
+2. Rename, rebrand, white-label, remove attribution from, or republish this
+   project or any substantial part of it.
+3. Use this project or any substantial part of it as the core capability of a
+   commercial SaaS product, commercial API, commercial Agent platform, paid
+   plugin, paid template library, paid course material, or other commercial
+   product.
+4. Claim this project, its rule system, prompt structure, parameter system, or
+   examples as your own original work.
+5. Remove, hide, or alter this copyright notice, author attribution, repository
+   source, or license terms.
+
+Any copy, distribution, display, modification, or citation of this project must
+retain author attribution and this license file.
+
+For commercial cooperation, commercial licensing, SaaS integration, republication,
+course usage, inclusion in paid products, or any use beyond this license, you
+must obtain explicit written permission from the author in advance.
+
+Violators shall bear all resulting legal responsibility.
+
+This project is provided "as is", without warranty of any kind. The author shall
+not be liable for any direct or indirect damages arising from the use of, or
+inability to use, this project.

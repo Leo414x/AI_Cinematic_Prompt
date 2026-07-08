@@ -156,6 +156,12 @@ SecretSky
 ID: 30648023970
 ```
 
+## Copyright and License
+
+This project is copyright registered. Resale, rebranding and republication, and use as the core capability of a commercial SaaS product are prohibited. Without explicit written permission from the author, this project or any substantial part of it may not be used in a commercial API, commercial Agent platform, paid plugin, paid template library, paid course material, or other commercial product. Violators shall bear all resulting legal responsibility.
+
+See [LICENSE](LICENSE) for the full terms.
+
 ## Disclaimer
 
 Preset names are descriptive references for cinematographic study and prompt engineering. This project is not affiliated with HBO, Warner Bros., A24, Netflix, or any named film, show, studio, camera, lens, or software brand.
