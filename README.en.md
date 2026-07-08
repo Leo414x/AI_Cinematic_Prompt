@@ -13,6 +13,8 @@ For Chinese workflow notes and visual examples, follow me on Douyin:
 ```text
 Sky
 ID: 28458932995
+SecretSky
+ID: 30648023970
 ```
 
 ## What It Does
@@ -150,6 +152,8 @@ For more cinematic AI workflow notes and examples, follow me on Douyin:
 ```text
 Sky
 ID: 28458932995
+SecretSky
+ID: 30648023970
 ```
 
 ## Disclaimer
