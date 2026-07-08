@@ -1,6 +1,6 @@
 ---
 name: cinematic-prompt-engine
-version: 0.1.0
+version: 0.2.0
 description: >
   面向 Agent 的电影级画面 Prompt 生成 Skill，专注生成 HBO / 好莱坞质感的
   生图提示词与 LOOK 迁移方案。Use this skill when the user wants cinematic
@@ -47,6 +47,7 @@ Read only the files needed for the task:
 | `references/params.md` | Always before prompt assembly; contains all image prompt tokens. |
 | `anti-slop-system.md` | Always before Layer 9; builds the anti-slop clause. |
 | `references/recipes.md` | Only when the request is a fuzzy look with no exact preset match. |
+| `adapters/general.md` | Only when a still-image model is named, or when the prompt needs model-safe realism anchors. |
 
 ## Request Routing
 
@@ -104,6 +105,21 @@ Framing layers:
 
 - scene, shot, aspect, angle, composition, foreground, camera, lens, aperture
 
+### Path 4 — Image Variants
+
+If the user asks for several directions for the same still-image scene, lock the
+LOOK layers and vary only:
+
+- dramatic moment
+- shot size
+- composition
+- camera angle
+
+First output a short variant table with three options and wait for the user's
+choice. If the user says "都要" / "all", generate one complete image prompt per
+variant. Keep lighting, color, mood, camera body, realism anchors, and anti-slop
+bucket consistent across variants.
+
 ## Image Prompt Assembly
 
 Assemble prompts in this exact order. Each layer is one complete sentence.
@@ -116,7 +132,7 @@ L4 [CAMERA]         camera body + lens + aperture.
 L5 [LIGHTING]       light_style + light_source + fill.
 L6 [COLOR/TEXTURE]  palette + saturation + film_stock + grain + halation.
 L7 [MOOD]           emotional atmosphere.
-L8 [REALISM]        subject-aware realism and clarity anchor.
+L8 [REALISM]        subject-aware realism + photography anchors + clarity + tonal density.
 L9 [ANTI-SLOP]      Tier A + one Tier B clause from anti-slop-system.md.
 L10 [MODEL NOTE]    Optional image-model note if the user names a target model.
 ```
@@ -131,6 +147,9 @@ The image should feel like a captured frame, not a posed prompt list.
 - Never change the user's subject, location, or intent.
 - For subjectless scenes, write material, weather, time, and environmental
   behavior instead of inventing a character.
+- If two or more main subjects appear, add a clear visual priority sentence in
+  L1: `视觉中心是 X，其余元素为衬托 X 的环境层。` Choose X from the user's emphasis,
+  the action initiator, or the largest narrative subject.
 
 ## L3 Depth Fallback
 
@@ -145,6 +164,9 @@ This adds cinematic depth without inventing foreground props.
 
 ## L8 Realism
 
+Read `adapters/general.md` when a target image model is named, especially GPT
+Image, Flux, or Midjourney.
+
 Use subject-aware realism:
 
 - If humans appear:  
@@ -157,6 +179,48 @@ Always add the clarity anchor:
 ```text
 成像干净通透，主体细节清晰锐利（光学锐度，非数字锐化），颗粒与光晕仅作质感点缀、不得掩盖细节。
 ```
+
+For GPT Image, Flux, and Midjourney, use the pure-positive clarity wording from
+`adapters/general.md` instead, because mentioning grain or halation can trigger
+visible noise in still-image models.
+
+If the image is low-key, night, or shadow-heavy, also add:
+
+```text
+暗部深邃而纯净，无噪点污染，深黑处依然通透。
+```
+
+Always include a medium anchor near L1 or L2 for cinematic realism:
+
+```text
+电影实拍剧照，真实摄影质感，<预设机身>实拍。
+```
+
+For shallow depth of field, add the optical bokeh anchor:
+
+```text
+焦外为真实镜头光学虚化，背景结构连贯可信、可辨认，绝无涂抹感与绘画笔触。
+```
+
+Always add the tonal density anchor:
+
+```text
+完整影调范围，高光胶片式肩部柔和滚降，中间调厚实有密度、色彩浓郁不发灰，暗部浓黑有密度且细节沉入而非发灰上浮；画面有胶片负片般的厚度与体量感。
+```
+
+### Softening Budget
+
+Grain, halation, haze, diffusion, bloom, and painterly softness must not all run
+at full strength in the same prompt. Keep at most two full-strength softening
+signals. Reduce the rest to subtle wording or omit them.
+
+For still-image models:
+
+- Fine grain is usually omitted or described as barely visible.
+- Medium/heavy grain appears only when it is a signature of the look, and it must
+  coexist with a clarity anchor.
+- When strong shallow depth of field is present, reduce haze or diffusion so the
+  background does not become smeared.
 
 ## L9 Anti-Slop
 
@@ -198,7 +262,11 @@ Only add a model note when the user names a target image model:
 - Midjourney: add concise parameter guidance such as `--style raw` and the
   requested aspect ratio when appropriate.
 - Flux: rewrite anti-slop as positive instructions where possible.
-- GPT Image: use natural prose, not keyword stacks.
+- GPT Image: use natural prose, not keyword stacks; compress the final prompt
+  according to `adapters/general.md`.
+- Any still-image model: keep camera body names as realism anchors, but translate
+  film stock names, fine grain, and underexposure language according to
+  `adapters/general.md`.
 
 ## Formatting Rules
 
@@ -222,7 +290,10 @@ Before final output:
 □ Preset or LOOK CARD path selected correctly.
 □ `references/presets.md`, `references/params.md`, and `anti-slop-system.md` used.
 □ L1-L9 assembled in order.
+□ Multi-subject scenes declare one visual center.
 □ Subjectless scene does not mention skin.
+□ Medium anchor, clarity anchor, shadow cleanliness, and tonal density are present when needed.
+□ Softening budget checked; fine grain reduced or omitted for still-image models.
 □ Anti-slop uses Tier A + one Tier B clause, not an old generic block.
-□ No movement, video stability, or multi-shot language appears.
+□ Final prompt contains no camera movement, video stability, or shot-continuity instructions.
 ```

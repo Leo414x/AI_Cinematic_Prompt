@@ -21,6 +21,7 @@ ID: 28458932995
 - Transfers a cinematographic LOOK onto a different scene.
 - Uses DP-inspired presets, camera/lens/light/color parameters, and a tiered anti-slop system.
 - Supports fuzzy style requests through a LOOK CARD confirmation step.
+- Adapts still-image prompts for GPT Image, Flux, and Midjourney by controlling noise-fuse terms, photographic realism, clean shadows, and tonal density.
 
 ## Installation
 
@@ -103,6 +104,8 @@ See [demo/README.md](demo/README.md) for example images covering neon portraits,
 ```text
 SKILL.md
 anti-slop-system.md
+adapters/
+  general.md
 demo/
 references/
   params.md
@@ -123,6 +126,8 @@ In scope:
 - LOOK transfer
 - Preset-driven style
 - Fuzzy LOOK CARD workflow
+- Still-image model adaptation
+- Concept variant directions
 
 Coming next:
 
