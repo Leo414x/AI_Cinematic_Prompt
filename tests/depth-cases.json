@@ -1,0 +1,44 @@
+[
+  {
+    "id": "foggy-forest-motivated",
+    "scene": "清晨有雾的森林中，一个人举灯穿过湿冷林地",
+    "expected_depth": "physical_medium",
+    "must_preserve": ["灯的方向", "雾的非均匀密度", "树木结构"],
+    "must_avoid": ["平铺奶白雾层", "全部纵深机制叠加"]
+  },
+  {
+    "id": "desert-clear-air",
+    "scene": "无风的晴朗沙漠中，一座黑色纪念碑立在远方",
+    "expected_depth": "atmospheric_perspective",
+    "must_preserve": ["远景对比与色彩梯度", "纪念碑边缘"],
+    "must_avoid": ["自动沙尘", "体积光束"]
+  },
+  {
+    "id": "vacuum-orbital-ruin",
+    "scene": "真空轨道上的古龙盘踞在破碎空间站外壳",
+    "expected_depth": "light_occlusion_scale",
+    "must_preserve": ["主体优先", "轮廓光", "遮挡与尺度"],
+    "must_avoid": ["大气雾霾", "悬浮微粒光束"]
+  },
+  {
+    "id": "dusty-hangar-shaft",
+    "scene": "尘封机库中，一束侧光穿过破门照向停机坪",
+    "expected_depth": "physical_medium",
+    "must_preserve": ["破门光源", "侧光方向", "真实衰减", "机库结构"],
+    "must_avoid": ["无来源体积光", "背景抹平"]
+  },
+  {
+    "id": "clean-sealed-corridor",
+    "scene": "洁净密封的白色科研走廊里，两名研究员隔门对峙",
+    "expected_depth": "light_exposure_separation",
+    "must_preserve": ["视觉中心", "人物关系", "分层受光"],
+    "must_avoid": ["室内薄雾", "凭空微粒"]
+  },
+  {
+    "id": "multi-subject-city-distance",
+    "scene": "巨龙越过城市上空，撤离人群沿高架桥奔跑",
+    "expected_depth": "atmospheric_perspective",
+    "must_preserve": ["明确视觉中心", "主体句优先", "背景结构"],
+    "must_avoid": ["深度描述挤掉主体", "雾化遮挡城市"]
+  }
+]

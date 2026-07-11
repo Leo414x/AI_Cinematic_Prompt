@@ -127,7 +127,7 @@ User overrides replace individual values without affecting the rest.
 | aspect | 2.39 | |
 | composition | centered | 居中构图聚焦面部 |
 | angle | eye_level | |
-| foreground | smoke_haze | 前景烟雾增加氛围 |
+| foreground | smoke_haze | 条件候选：仅场景明确存在烟、雾、尘或蒸汽时使用，不能只为氛围添加 |
 | camera | alexa_mini | |
 | lens | spherical_35 | 35mm 球面 |
 | aperture | T1.4 | 极浅景深 |
@@ -155,7 +155,7 @@ User overrides replace individual values without affecting the rest.
 | aspect | 2.39 | 变形宽银幕 |
 | composition | thirds_negative | 大面积天空/海景留白 |
 | angle | eye_level | 客观平视 |
-| foreground | smoke_haze | 海雾/薄雾前景 |
+| foreground | smoke_haze | 条件候选：仅场景明确出现海雾、喷雾或其他可见介质时使用 |
 | camera | alexa_lf | 大画幅 |
 | lens | spherical_35 | 35mm 球面 |
 | aperture | T4 | 中等景深 |
@@ -183,7 +183,7 @@ User overrides replace individual values without affecting the rest.
 | aspect | 2.39 | 变形宽银幕 |
 | composition | thirds_negative | 大面积天空/沙漠留白 |
 | angle | slight_low | 微仰增加纪念碑感 |
-| foreground | smoke_haze | 大气薄雾/沙尘前景 |
+| foreground | smoke_haze | 条件候选：仅场景明确出现扬尘、沙暴或其他可见介质时使用 |
 | camera | alexa_lf | 大画幅 |
 | lens | spherical_24 | 24mm 广角 |
 | aperture | T5.6 | 深景深保持壮阔环境清晰 |
@@ -291,7 +291,7 @@ User overrides replace individual values without affecting the rest.
 | aspect | 2.39 | 大画幅变形宽银幕 |
 | composition | thirds_negative | 人物偏置，大面积天空/地景留白 |
 | angle | eye_level | 客观自然主义 |
-| foreground | smoke_haze | 烟雾/薄雾前景增加史诗大气感 |
+| foreground | smoke_haze | 条件候选：仅场景明确存在烟、雾、尘或蒸汽时使用，不作为史诗感捷径 |
 | camera | alexa_lf | 大画幅 |
 | lens | anamorphic_40 | 40mm 变形，椭圆散景+水平光晕 |
 | aperture | T2.8 | 适度浅景深 |
@@ -321,7 +321,7 @@ User overrides replace individual values without affecting the rest.
 | aspect | 2.39 | 变形宽银幕史诗感 |
 | composition | thirds_negative | 人物偏置，大面积天空/地景留白 |
 | angle | slight_low | 微仰增加纪念碑般的份量感 |
-| foreground | smoke_haze | 浓雾/烟尘前景，增加纵深与大气 |
+| foreground | smoke_haze | 条件候选：仅场景明确出现浓雾、烟尘或沙暴时使用，且保持结构可辨 |
 | camera | alexa_lf | 大画幅 |
 | lens | spherical_24 | 24mm 广角，宏阔视野 |
 | aperture | T5.6 | 深景深保持壮阔环境清晰 |
@@ -379,7 +379,7 @@ User overrides replace individual values without affecting the rest.
 | aspect | 2.39 | 变形宽银幕 |
 | composition | centered | 居中构图，朴素直接 |
 | angle | eye_level | 平视，客观纪录 |
-| foreground | smoke_haze | 农田尘土/薄雾前景，大气感 |
+| foreground | smoke_haze | 条件候选：仅场景明确出现扬尘或薄雾时使用，不从农业环境自动推断 |
 | camera | film_35mm | 35mm 胶片实拍 |
 | lens | anamorphic_40 | 变形镜头 |
 | aperture | T2 | 浅景深 |

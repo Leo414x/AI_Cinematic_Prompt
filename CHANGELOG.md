@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.0
+
+- Replaces the generic L3 haze fallback with conditional depth mechanisms: light/exposure separation, distance-graded atmospheric perspective, or occlusion/scale recession.
+- Distinguishes atmospheric perspective, physical fog, and a light-bearing medium; fog and volumetric shafts now require plausible-medium and motivated-light checks.
+- Treats preset `smoke_haze` as conditional while preserving the public parameter ID.
+- Prevents vacuum space and clean sealed environments from receiving automatic atmospheric haze.
+- Updates the G2 sci-fi anti-slop clause and still-image adapter so depth preserves subject priority and background structure.
+- Adds static regression validation for the new depth contract.
+
 ## 0.2.0
 
 - Syncs image-only improvements from the local `cinematic-prompt-engine` v2.8.0.

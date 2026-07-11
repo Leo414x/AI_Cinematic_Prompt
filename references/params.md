@@ -53,7 +53,7 @@ If a token is empty string (`""`), skip it entirely — do not insert a blank.
 | over_shoulder | 过肩 OTS | 过肩镜头构图，前景人物肩部虚化 | over-the-shoulder framing, foreground shoulder out of focus |
 | dutch | 荷兰角 | 轻微倾斜的荷兰角构图，不安感 | subtle Dutch angle, sense of unease |
 | frame_in_frame | 框中框 | 框中框构图，人物被窗户、门框、镜子或建筑结构自然框住 | frame-within-frame, subject enclosed by window, doorway, mirror, or architectural element |
-| depth_staging | 纵深调度 | 前中后景分层调度，前景、中景、背景各有元素形成纵深层次 | depth staging, distinct foreground, midground, and background layers |
+| depth_staging | 纵深调度 | 用遮挡、尺度递减或分层受光组织已有的前中后景，保持背景结构可辨，不自动添加雾气 | depth staging through occlusion, scale recession, or layered exposure; preserve legible background structure and do not add fog by default |
 | leading_lines | 引导线 | 强烈的引导线构图，走廊、铁轨、公路或建筑线条将视线引向主体 | strong leading lines — corridor, rails, road, or architecture guiding eye to subject |
 | looking_room | 视线空间 | 人物面朝的方向留出大面积视线空间，背后紧贴画框边缘 | generous looking room ahead of subject's gaze, tight framing behind |
 | voyeur_obscured | 窥探式遮挡 | 镜头被门框、墙壁、家具或物件部分遮挡，如同从隐蔽处偷窥，角色常被推到画面边缘，观众感觉在窥探一个不该看到的私密时刻 | camera partially obscured by doorframes, walls, furniture or objects, as if spying from a hidden vantage point, characters often pushed to frame edges, viewer feels they are witnessing a private moment they shouldn't see |
@@ -85,7 +85,7 @@ If a token is empty string (`""`), skip it entirely — do not insert a blank.
 | glass | 玻璃/反射 | 透过玻璃拍摄，表面带有微弱反射和折射 | shot through glass, faint reflections and refraction |
 | rain_condensation | 雨水/水雾 | 前景是带有雨滴或水雾凝结的玻璃表面 | rain-streaked or condensation-covered glass in foreground |
 | bars_fence | 栏杆/铁丝网 | 透过栏杆、铁丝网或栅栏拍摄，暗示禁锢 | shot through bars, fence, or grating, implying confinement |
-| smoke_haze | 烟雾/薄雾 | 前景弥漫着轻薄的烟雾或薄雾，增加空气感 | wisps of smoke or haze drifting through foreground, atmospheric depth |
+| smoke_haze | 烟雾/薄雾（条件） | 仅当场景确有雾、烟、沙尘、蒸汽、喷雾或风雪时使用；介质分布不均并承接明确光源，保持主体轮廓与背景结构可辨 | conditional physical fog, smoke, dust, steam, spray, or snow; uneven density catches a motivated light while subject silhouette and background structure remain legible |
 | object | 道具/物件 | 前景有虚化的道具或物件（杯子、文件、武器） | out-of-focus prop in foreground (cup, papers, weapon) |
 
 ---
@@ -138,7 +138,7 @@ If a token is empty string (`""`), skip it entirely — do not insert a blank.
 | warm_window | 暖调窗光 | 温暖的午后阳光从窗户斜射入 | warm afternoon sunlight through window |
 | practical_lamp | 台灯/壁灯 | 画面中的台灯或壁灯作为唯一光源 | practical lamp as sole light source |
 | fluorescent | 荧光灯管 | 头顶荧光灯管发出惨白偏绿的冷光 | overhead fluorescent tubes, sickly green-white |
-| golden_hour | 黄金时刻 | 黄金时刻的低角度暖光，穿过空气中的微尘 | golden hour low-angle warm light, atmospheric haze |
+| golden_hour | 黄金时刻 | 黄金时刻的低角度暖光与长阴影；仅当场景明确有尘、雾或喷雾时才写可见光束 | golden-hour low-angle warm light and long shadows; add visible shafts only when the scene explicitly contains dust, fog, or spray |
 | overcast | 阴天漫射 | 厚云层下均匀的冷灰漫射光 | heavy overcast, flat cool ambient light |
 | moonlight | 月光 | 冷蓝色月光透过窗户 | cold blue moonlight through window |
 | neon | 霓虹/招牌 | 城市霓虹灯和招牌的混合彩色光 | mixed neon and signage light, urban color spill |
@@ -240,7 +240,7 @@ If a token is empty string (`""`), skip it entirely — do not insert a blank.
 | ominous | 不祥 | 隐约的不祥预感 | subtle sense of dread |
 | intimate | 私密 | 私密亲近的氛围 | intimate, close atmosphere |
 | clinical | 冷漠临床 | 临床般的冷漠与客观 | clinical detachment |
-| dreamy | 迷离 | 梦幻朦胧的迷离感 | dreamy, hazy, ethereal |
+| dreamy | 迷离 | 梦幻、空灵，以柔和高光过渡表达，不自动添加雾气 | dreamy and ethereal with gentle highlight transitions; do not add fog by default |
 | oppressive | 压抑 | 令人窒息的压抑感 | suffocating, oppressive |
 | contemplative | 沉思 | 沉静思索的氛围 | contemplative stillness |
 | exhilarating | 亢奋热血 | 高速肾上腺素的兴奋感，紧张而热血 | high-velocity adrenaline thrill, tense and exhilarating |
