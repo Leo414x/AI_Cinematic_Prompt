@@ -1,11 +1,12 @@
 ---
 name: cinematic-prompt-engine
-version: 0.2.0
 description: >
   面向 Agent 的电影级画面 Prompt 生成 Skill，专注生成 HBO / 好莱坞质感的
   生图提示词与 LOOK 迁移方案。Use this skill when the user wants cinematic
   image prompts, prestige-TV / Hollywood-grade visual style, DP-inspired looks,
   LOOK cards, or transferring an existing cinematographic look onto a new scene.
+metadata:
+  version: 0.3.0
 ---
 
 # Cinematic Prompt Engine
@@ -127,7 +128,7 @@ Assemble prompts in this exact order. Each layer is one complete sentence.
 ```text
 L1 [SCENE]          Subject + action or environment moment.
 L2 [FRAMING]        shot + aspect + angle + composition.
-L3 [FOREGROUND]     foreground depth element; skip if foreground is none.
+L3 [DEPTH]          motivated foreground or one non-obscuring depth mechanism.
 L4 [CAMERA]         camera body + lens + aperture.
 L5 [LIGHTING]       light_style + light_source + fill.
 L6 [COLOR/TEXTURE]  palette + saturation + film_stock + grain + halation.
@@ -151,16 +152,47 @@ The image should feel like a captured frame, not a posed prompt list.
   L1: `视觉中心是 X，其余元素为衬托 X 的环境层。` Choose X from the user's emphasis,
   the action initiator, or the largest narrative subject.
 
-## L3 Depth Fallback
+## L3 Depth Discipline
 
-If `foreground = none` and the scene is not a clean product/reference image,
-add a non-object depth sentence:
+Depth must preserve the subject and background structure. Never use fog, haze,
+or blur as a generic depth shortcut.
 
-```text
-前后景层次分离，空气透视带来大气纵深。
-```
+1. If the user or scene supplies a motivated foreground element, preserve it.
+2. Treat preset `foreground` values as candidates, not unconditional output.
+   In particular, use `smoke_haze` only when the user's scene explicitly contains
+   or visibly implies active fog, smoke, dust, steam, sea mist, blowing snow, or
+   another visible medium. A preset label or a merely possible environment is not
+   enough by itself.
+3. If `foreground = none`, or a preset's foreground is not physically motivated,
+   choose exactly one primary fallback that fits the scene:
+   - **Light/exposure separation** — for a lit subject against a background:
+     `主体通过有来源的轮廓光或明暗关系与背景分离，近中远景保持不同受光与对比。`
+   - **Distance-graded atmospheric perspective** — for exterior scale and long
+     distance: `远景随距离降低对比、轻微去饱和并偏冷，结构与边缘仍然清楚可辨。`
+   - **Occlusion/scale recession** — when the scene already contains repeating
+     architecture, terrain, or crowds: describe overlap and diminishing scale
+     without inventing new props.
 
-This adds cinematic depth without inventing foreground props.
+Atmospheric perspective lowers contrast and color separation with distance; it
+does not lower structural resolution. Do not stack all three fallbacks. The
+subject remains the highest-priority signal, and L3 is shortened or omitted
+before L1 when the model has a tight prompt budget.
+
+### Motivated Fog And Light Medium
+
+Physical fog and a light-bearing medium are different from atmospheric
+perspective. Add volumetric fog or visible light shafts only when the scene has:
+
+- a plausible medium such as fog, smoke, dust, steam, rain spray, snow, or
+  suspended particles; and
+- a named or clearly visible light source with direction and falloff.
+
+When both conditions are met, describe the medium as catching that light with
+uneven, distance-aware density while preserving silhouettes and background
+structure. If either condition is missing, omit volumetric language. Vacuum
+space never receives atmospheric haze or particulate light shafts unless the
+user explicitly supplies debris, gas, exhaust, or another local medium; use rim
+light, occlusion, scale, and exposure separation for depth instead.
 
 ## L8 Realism
 
@@ -210,17 +242,19 @@ Always add the tonal density anchor:
 
 ### Softening Budget
 
-Grain, halation, haze, diffusion, bloom, and painterly softness must not all run
-at full strength in the same prompt. Keep at most two full-strength softening
-signals. Reduce the rest to subtle wording or omit them.
+Grain, halation, physically motivated fog, diffusion, bloom, and painterly
+softness must not all run at full strength in the same prompt. Keep at most two
+full-strength softening signals. Reduce the rest to subtle wording or omit them.
+Atmospheric perspective written as contrast/color falloff is not a softening
+signal because it preserves structure.
 
 For still-image models:
 
 - Fine grain is usually omitted or described as barely visible.
 - Medium/heavy grain appears only when it is a signature of the look, and it must
   coexist with a clarity anchor.
-- When strong shallow depth of field is present, reduce haze or diffusion so the
-  background does not become smeared.
+- When strong shallow depth of field is present, reduce physical fog or diffusion
+  so the background does not become smeared.
 
 ## L9 Anti-Slop
 
@@ -291,6 +325,9 @@ Before final output:
 □ `references/presets.md`, `references/params.md`, and `anti-slop-system.md` used.
 □ L1-L9 assembled in order.
 □ Multi-subject scenes declare one visual center.
+□ L3 uses one primary depth mechanism; it does not stack generic fog, blur, and haze.
+□ `smoke_haze` and volumetric light pass the physical-medium + motivated-light checks.
+□ Vacuum space contains no atmospheric haze unless the scene supplies a local medium.
 □ Subjectless scene does not mention skin.
 □ Medium anchor, clarity anchor, shadow cleanliness, and tonal density are present when needed.
 □ Softening budget checked; fine grain reduced or omitted for still-image models.

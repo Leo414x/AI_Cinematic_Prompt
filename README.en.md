@@ -25,6 +25,20 @@ ID: 30648023970
 - Supports fuzzy style requests through a LOOK CARD confirmation step.
 - Adapts still-image prompts for GPT Image, Flux, and Midjourney by controlling noise-fuse terms, photographic realism, clean shadows, and tonal density.
 
+## Latest Update: v0.3.0
+
+This release upgrades fog, volumetric-light, and spatial-depth handling. The skill
+now selects a depth mechanism from light/exposure separation, distance-graded
+atmospheric perspective, or occlusion and scale recession instead of applying
+generic haze to create depth.
+
+- Atmospheric perspective reduces distant contrast and color separation while preserving silhouettes, edges, and background structure.
+- Fog, smoke, dust, steam, and visible light shafts require a plausible medium plus a motivated source, direction, and falloff.
+- Vacuum space and clean sealed environments no longer receive automatic atmospheric haze or suspended particles.
+- Depth language follows subject priority and a softening budget, preventing subject dilution and smeared backgrounds.
+
+See [CHANGELOG.md](CHANGELOG.md) for the complete technical changes.
+
 ## Installation
 
 Choose the folder used by your agent environment.

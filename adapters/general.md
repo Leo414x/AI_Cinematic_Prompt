@@ -25,6 +25,24 @@ them before final prompt assembly.
 Camera bodies such as Alexa 65, Alexa LF, VENICE 2, and Alexa Mini are not noise
 fuse terms. Keep the camera body as a realism anchor.
 
+## Depth And Atmosphere Fuse Terms
+
+Still-image models often interpret vague fog language as a flat milky blur that
+erases the background. Translate depth intent into a visible mechanism before
+final assembly.
+
+| Input intent | Image prompt handling |
+|--------------|-----------------------|
+| `atmospheric haze`, `fog`, `misty`, `雾`, `朦胧` used only to make the background feel deep | Replace with distance-graded atmospheric perspective: far planes lose contrast, slightly desaturate and cool, while silhouettes, edges, and structure remain legible. Do not retain fog words. |
+| Real fog, smoke, dust, steam, spray, or snow exists in the scene | Keep the physical medium, but name its source or context, uneven density, and the light it catches. It must not become a flat overlay. |
+| Visible volumetric light | Require both a plausible medium and a motivated light source. State direction and falloff; preserve the subject silhouette and background structure. |
+| Vacuum space or a clean sealed environment | Do not add atmospheric haze or particulate shafts. Use rim light, occlusion, scale recession, and exposure contrast unless the user supplies a local gas, exhaust, dust, or debris medium. |
+
+Prefer one primary depth mechanism. Light/exposure separation is the safest
+default for a subject; distance-graded contrast/color falloff is the safest
+default for exterior scale. Do not stack fog, shallow depth of field, diffusion,
+and bloom to solve the same depth problem.
+
 ## Photography Anchors
 
 All still-image prompts should preserve photographic realism even when noise terms
@@ -40,9 +58,10 @@ are removed.
    English:
    `smooth optical lens bokeh; out-of-focus areas stay structurally coherent and photographic, never painterly smearing.`
 
-3. **Softening budget** — if shallow depth of field is strong, reduce haze,
-   bloom, diffusion, or grain to subtle levels. Do not stack every softening token
-   at full strength.
+3. **Softening budget** — if shallow depth of field is strong, reduce physical
+   fog, bloom, diffusion, or grain to subtle levels. Do not stack every softening
+   token at full strength. Distance-graded contrast/color falloff does not consume
+   this budget because it does not blur structure.
 
 ## Tonal Density Anchor
 
@@ -72,7 +91,7 @@ Merge layers instead of deleting important signals:
 
 ```text
 Sentence 1: L1 scene + subject priority.
-Sentence 2: medium anchor + framing + camera/lens + depth.
+Sentence 2: medium anchor + framing + camera/lens + one primary depth mechanism.
 Sentence 3: motivated lighting.
 Sentence 4: color science + saturation + visible texture.
 Sentence 5: mood + material realism + pure-positive clarity + tonal density.
