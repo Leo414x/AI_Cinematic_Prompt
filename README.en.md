@@ -11,8 +11,6 @@ If this project helps you, please give it a Star. It helps more creators and Age
 For Chinese workflow notes and visual examples, follow me on Douyin:
 
 ```text
-Sky
-ID: 28458932995
 SecretSky
 ID: 30648023970
 ```
@@ -164,8 +162,6 @@ If you use this skill in your own Agent workflow, a GitHub Star would mean a lot
 For more cinematic AI workflow notes and examples, follow me on Douyin:
 
 ```text
-Sky
-ID: 28458932995
 SecretSky
 ID: 30648023970
 ```
